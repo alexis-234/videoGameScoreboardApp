@@ -53,6 +53,9 @@ public class Scoreboard {
         }
     }
     
+    
+    // *** TO FIX *** 
+    // throws errors maybe due to file not found, while trying to write to a new file on desktop
     // saves the game objects to dataline on the file
     public void SaveGames(String filename) throws IOException{
         FileWriter myWriter = new FileWriter("C:\\Users\\alexi\\Desktop\\New Text Document.txt", false);
@@ -67,8 +70,7 @@ public class Scoreboard {
         
     }
     
-     // *** TO FIX *** 
-    // throws errors maybe due to file not found, while trying to write to a new file on desktop
+     
     public void loadStudents(String filename) throws FileNotFoundException {
         File fileObj = new File(filename);
         Scanner myScanner = new Scanner(fileObj);
@@ -155,6 +157,19 @@ public class Scoreboard {
        
     }
     
+    // gets game data afrom the game index, thn it creates a Stats object for the 
+    public Stats computeStatsForGames(int gameIndex){
+    
+    int[] scoreforgigenGame = new int[this.studentCount];
+        for (int i = 0; i < this.studentCount; i++) {
+            Student s = this.students[i] ;
+            int[] allHiScores = s.getScores();
+            scoreforgigenGame[i] =  allHiScores[gameIndex];
+        }
+    
+    
+    }
+    
     // getters and setters
 
     public int getStudentCount() {
@@ -188,6 +203,15 @@ public class Scoreboard {
         int min; 
         int max; 
         double avg;
+
+        public Stats(int min, int max, double avg) {
+            this.min = min;
+            this.max = max;
+            this.avg = avg;
+        }
+        
+       
+        
     }
     
     // find highest, find total, find average in a static class
