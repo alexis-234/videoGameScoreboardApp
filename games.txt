@@ -1,0 +1,10 @@
+1,Galaxy Wars,Shooter,NovaSoft
+2,Mystic Quest,RPG,BluePeak
+3,Puzzle Forge,Puzzle,MindMint
+4,Shadow Sprint,Platformer,NightOwl
+5,Battle Arena,Fighting,IronClash
+6,Sky Racers,Racing,AeroDrive
+7,Cyber Strike,Action,NeonWorks
+8,Farm Valley,Simulation,GreenLeaf
+9,Brain Blocks,Strategy,ThinkTank
+10,Circuit Dash,Racing,VoltWorks
