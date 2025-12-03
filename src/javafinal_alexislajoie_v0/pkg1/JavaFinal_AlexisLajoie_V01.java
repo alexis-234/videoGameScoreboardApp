@@ -29,7 +29,8 @@ public class JavaFinal_AlexisLajoie_V01 {
                 
         all.loadStudents("C:\\Users\\alexi\\OneDrive - Champlain Regional College\\Documents\\Classes\\Java 1\\JavaFinal_AlexisLajoie_V0.1\\scores.txt");
         
-        all.SaveGames("hh");
+        ///all.SaveGames("hh");
+            // need to fix the  saves canot find the files
 
 //  Load data files on start, we will call two methods here to read data from files
 // Show menu loop and collect user’s choice with Scanner 
@@ -50,7 +51,7 @@ public class JavaFinal_AlexisLajoie_V01 {
                 handleListStudents(all);
                 break;
             case 3:
-                handleStudentReport();
+                handleStudentReport(all);
                 break;
             case 4:
                 handleTopNforAgame();
@@ -104,8 +105,21 @@ public class JavaFinal_AlexisLajoie_V01 {
         score.listStudents();
     }
 
-    public static void handleStudentReport() {
+    public static void handleStudentReport(Scoreboard score) {
         System.out.println("handle Student Report");
+        
+        
+         score.listStudents();
+         
+         String choice = Utilities.getUserChoiceStr("Enter Student ID:");
+         
+         int StudnentIdx = score.findStudentByID(choice);
+         
+         score.studentReport(StudnentIdx);
+         
+         
+        
+        
     }
 
     public static void handleTopNforAgame() {
