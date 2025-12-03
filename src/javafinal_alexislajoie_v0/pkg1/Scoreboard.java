@@ -102,20 +102,25 @@ public class Scoreboard {
     }
     
     public void listGames(){
-        
-        for(Game i : this.games){
-            System.out.print(i.toString() + "\n");
+        System.out.println("Games:");
+        for(int i = 0; i < this.games.length; i++){
+            int  num = i + 1;
+            System.out.print(num + ") " + this.games[i].toString() + "\n");
         }
     }
     
     public void listStudents(){
-        
-        for(Student i : this.students){
-            System.out.print(i.toString() + "\n");
+        System.out.println("Students:");
+        for (int i = 0; i < this.students.length; i++) {
+            if (this.students[i] != null)  {  
+            int  num = i + 1;
+            System.out.print(num + ") " + this.students[i].toString() + "\n");}
         }
         
     }
     
+    
+    // decision made to return index instead of student objec to it an be used in differne situations saving memeory
     public int findStudentByID(String ID){
         int foundIndex = -1;
         
