@@ -157,7 +157,7 @@ public class Scoreboard {
        
     }
     
-    // gets game data afrom the game index, thn it creates a Stats object for the 
+    // gets game data from the game index, thn it creates a Stats object for the
     public void computeStatsForGames(int gameIndex){ // sould return Stats
     
     int[] scoreforgigenGame = new int[this.studentCount];
