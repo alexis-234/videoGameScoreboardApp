@@ -57,7 +57,7 @@ public class Utilities {
     }
 
     
-    public int findMaximum(int[] array){
+    public static int findMaximum(int[] array){
         int bigest = array[0];
         for (int i = 0; i < array.length; i++) {
             
@@ -71,7 +71,7 @@ public class Utilities {
         return bigest;
     }
 
-    public int findMinimum(int[] array){
+    public static int findMinimum(int[] array){
         int smallest = array[0];
         for (int i = 0; i < array.length; i++) {
             
@@ -85,7 +85,7 @@ public class Utilities {
         return smallest;
     }
     
-    public double findAvg(int[] array){
+    public static double findAvg(int[] array){
         int total = 0;
         for (int i = 0; i < array.length; i++) {
             
