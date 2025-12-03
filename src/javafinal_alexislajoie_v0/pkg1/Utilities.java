@@ -56,5 +56,45 @@ public class Utilities {
         }
     }
 
+    
+    public int findMaximum(int[] array){
+        int bigest = array[0];
+        for (int i = 0; i < array.length; i++) {
+            
+            if(array[i] > bigest){
+                bigest = array[i];
+            }
+            
+        }
+        
+        
+        return bigest;
+    }
 
+    public int findMinimum(int[] array){
+        int smallest = array[0];
+        for (int i = 0; i < array.length; i++) {
+            
+            if(array[i] < smallest){
+                smallest = array[i];
+            }
+            
+        }
+        
+        
+        return smallest;
+    }
+    
+    public double findAvg(int[] array){
+        int total = 0;
+        for (int i = 0; i < array.length; i++) {
+            
+            total = total + array[1];
+        }
+        double avg = total / array.length;
+        
+        
+        return avg;
+    }
+    
 }
