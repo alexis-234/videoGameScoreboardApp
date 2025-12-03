@@ -19,6 +19,14 @@ public class Utilities {
         choice = myScanner.nextInt();
         return choice;
     }
+    
+    public static String getUserChoiceStr(String prompt) {
+        String choice = "";
+        System.out.print(prompt);
+        Scanner myScanner = new Scanner(System.in);
+        choice = myScanner.nextLine();
+        return choice;
+    }
 
     /**
      * Use binary search to find the key in the list
