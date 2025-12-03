@@ -54,7 +54,7 @@ public class JavaFinal_AlexisLajoie_V01 {
                 handleStudentReport(all);
                 break;
             case 4:
-                handleTopNforAgame();
+                handleTopNforAgame(all);
                 break;
             case 5:
                 handleUpdateStudentScore();
@@ -116,14 +116,13 @@ public class JavaFinal_AlexisLajoie_V01 {
          int StudnentIdx = score.findStudentByID(choice);
          
          score.studentReport(StudnentIdx);
-         
-         
-        
-        
+          
     }
 
-    public static void handleTopNforAgame() {
+    public static void handleTopNforAgame(Scoreboard score) {
         System.out.println("handle TopN for Agame");
+        score.TopNForGame(1,1);
+        
     }
 
     public static void handleUpdateStudentScore() {
