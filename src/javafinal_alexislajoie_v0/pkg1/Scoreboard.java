@@ -176,6 +176,31 @@ public class Scoreboard {
         
     }
     
+    // canot make the array of scores
+    public void TopNForGame(int gameInx,int topN){
+        int[] scoreforgigenGame = new int[this.studentCount];
+        
+        
+        
+        for (int i = 0; i < this.studentCount; i++) {
+            Student s = this.students[i] ;
+            int[] allHiScores = s.getScores();
+            scoreforgigenGame[i] =  allHiScores[gameInx];
+        }
+        
+        for (int i = 0; i < scoreforgigenGame.length; i++) {
+            System.out.println(scoreforgigenGame[i]);
+            
+        }
+        
+        
+        Utilities.sortArrayListBasedOnScore(scoreforgigenGame);
+        for (int i = 0; i < scoreforgigenGame.length; i++) {
+            System.out.println(scoreforgigenGame[i]);
+            
+        }
+    }
+    
     // gets game data from the game index, then it creates a Stats object for the object 
     public Stats computeStatsForGames(int gameIndex){ // sould return Stats
     
