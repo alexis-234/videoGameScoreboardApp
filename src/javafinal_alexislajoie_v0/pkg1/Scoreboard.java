@@ -165,12 +165,14 @@ public class Scoreboard {
     }
     
     // needs to be in Scoreboard to have acces to the Game names
-    public void printReport(int stuInx){
-        
+    public void studentReport(int stuInx){
+        System.out.printf("Report for %s\n",this.students[stuInx].getName());
         for (int i = 0; i < this.students[stuInx].getScores().length; i++) {
-            System.out.printf("\t%s : %d",this.games[i].getTitle(), this.students[stuInx].getScores()[i]);
+            System.out.printf("\t%s : %d \n",this.games[i].getTitle(), this.students[stuInx].getScores()[i]);
             
         }
+        System.out.printf("Total: %d\n",this.students[stuInx].getTotal());
+        System.out.printf("Average: %.2f\n",this.students[stuInx].getAverage());
         
     }
     
