@@ -9,6 +9,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+import javafinal_alexislajoie_v0.pkg1.Game;
+import javafinal_alexislajoie_v0.pkg1.Student;
 
 /**
  *
@@ -157,8 +159,8 @@ public class Scoreboard {
        
     }
     
-    // gets game data from the game index, thn it creates a Stats object for the
-    public void computeStatsForGames(int gameIndex){ // sould return Stats
+    // gets game data from the game index, then it creates a Stats object for the object 
+    public Stats computeStatsForGames(int gameIndex){ // sould return Stats
     
     int[] scoreforgigenGame = new int[this.studentCount];
         for (int i = 0; i < this.studentCount; i++) {
@@ -166,7 +168,26 @@ public class Scoreboard {
             int[] allHiScores = s.getScores();
             scoreforgigenGame[i] =  allHiScores[gameIndex];
         }
+        
+        // finding maximum, minimum and average in utilities
+        
+        int max = Utilities.findMaximum(scoreforgigenGame);
+        int min = Utilities.findMinimum(scoreforgigenGame);
+        double avg = Utilities.findAvg(scoreforgigenGame);
+            
+        return new Stats(min,max,avg);
+            
+        }
+        
     
+    
+    public void updateScores(){
+        
+    }
+
+    
+    public void showTopNForGame(){
+        
     }
     
     // getters and setters
@@ -196,7 +217,6 @@ public class Scoreboard {
     }
     
     
-    
     class Stats{
         
         int min; 
@@ -215,5 +235,4 @@ public class Scoreboard {
     
     // find highest, find total, find average in a static class
             
-   // hello world
 }
