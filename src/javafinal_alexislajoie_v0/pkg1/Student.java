@@ -57,8 +57,8 @@ public class Student {
     }
     
     // computes the average of all the scores
-    public int getAverage(){
-        int avg;
+    public double getAverage(){
+        double avg;
         avg = getTotal() / this.scores.length;
         return avg;
     }   
@@ -72,7 +72,7 @@ public class Student {
             result = result + "," + this.scores[i];
             
         }
-        return String.format("%s,%s%s",this.getId(),this.getName(),result);
+        return String.format("%s,%s,%s",this.getId(),this.getName(),result);
        
     }
     
@@ -133,7 +133,6 @@ public class Student {
         scores[gameInx] = newScore;
         
     }
-            
     
     
     // geters and setters
