@@ -164,6 +164,16 @@ public class Scoreboard {
        
     }
     
+    // needs to be in Scoreboard to have acces to the Game names
+    public void printReport(int stuInx){
+        
+        for (int i = 0; i < this.students[stuInx].getScores().length; i++) {
+            System.out.printf("\t%s : %d",this.games[i].getTitle(), this.students[stuInx].getScores()[i]);
+            
+        }
+        
+    }
+    
     // gets game data from the game index, then it creates a Stats object for the object 
     public Stats computeStatsForGames(int gameIndex){ // sould return Stats
     
