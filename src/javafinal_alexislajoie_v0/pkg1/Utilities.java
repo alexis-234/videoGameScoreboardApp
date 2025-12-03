@@ -47,10 +47,10 @@ public class Utilities {
         return -1 - low;
     }
 
-    public static void sortArrayListBasedOnScore(double[] list) {
+    public static void sortArrayListBasedOnScore(int[] list) {
         for (int i = 0; i < list.length; i++) {
 // Find the minimum in the list[i..list.length-1]
-            double currentMin = list[i];
+            int currentMin = list[i];
             int currentMinIndex = i;
             for (int j = i + 1; j < list.length; j++) {
                 if (currentMin > list[j]) {
