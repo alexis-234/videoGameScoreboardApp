@@ -80,6 +80,8 @@ public class Scoreboard {
             System.out.println(students[i].toString() + students[i].printScores());
             i++;
         }
+
+        this.studentCount = i;
     }
 
     // *** TO FIX *** 
@@ -179,24 +181,14 @@ public class Scoreboard {
         for (int i = 0; i < this.studentCount; i++) {
             Student s = this.students[i];
             int[] allHiScores = s.getScores();
-            scoreforgigenGame[i] = allHiScores[gameInx];
-        }
-
-        for (int i = 0; i < scoreforgigenGame.length; i++) {
-            System.out.println(scoreforgigenGame[i]);
-
-        }
+            scoreforgigenGame[i] = allHiScores[gameInx];}
 
         Utilities.sortArrayListBasedOnScore(scoreforgigenGame);
-        for (int i = 0; i < scoreforgigenGame.length; i++) {
-            System.out.println(scoreforgigenGame[i]);
-
         }
-    }
 
     // gets game data from the game index, then it creates a Stats object for the object 
-    public Stats computeStatsForGames(int gameIndex) { // sould return Stats
-
+    public Stats computeStatsForGame(int gameIndex) { // sould return Stats
+        
         int[] scoreforgigenGame = new int[this.studentCount];
         for (int i = 0; i < this.studentCount; i++) {
             Student s = this.students[i];
