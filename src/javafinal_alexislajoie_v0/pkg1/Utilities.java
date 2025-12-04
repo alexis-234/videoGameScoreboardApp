@@ -63,7 +63,8 @@ public class Utilities {
             list[i] = currentMin;
         }
     }
-    
+   
+    //swaps students places basd on an array of scores 1:1 with thir scores for a given game
     public static void sortArrayListBasedOnScore(int[] list,Student[] students) {
         for (int i = 0; i < list.length; i++) {
 // Find the minimum in the list[i..list.length-1]
@@ -77,8 +78,14 @@ public class Utilities {
             }
 // Swap list[i] with list[currentMinIndex] if necessary;if (currentMinIndex != i) {
             list[currentMinIndex] = list[i];
-            students[currentMinIndex] = students[i];
+            
             list[i] = currentMin;
+            
+            // creating a student temp object with the minimum, then assigning the new minimum i to the old minimum, then puting the temp in the old minimum
+            Student temp = students[currentMinIndex];
+            students[currentMinIndex] = students[i];
+            
+            students[i] = temp;
         }
     }
 

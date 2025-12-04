@@ -136,6 +136,10 @@ public class Student {
     
     
     // geters and setters
+    
+    public int getScoreAt(int gameInx){
+        return this.scores[gameInx];
+    }
     public String getId() {
         return id;
     }

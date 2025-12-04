@@ -118,6 +118,21 @@ public class Scoreboard {
         }
 
     }
+    
+    public void listStudents(int N, int gameInx) {
+        System.out.println("Students:" + this.studentCount);
+        int num = 1;
+        for (int i = this.studentCount -1; i > this.studentCount - N -2; i--) {
+            if (this.students[i] != null) {
+                
+                //System.out.print(num + ") " + this.students[i].toString() + "\n");
+                System.out.printf("%d) %s - %d \n",num,this.students[i],this.students[i].getScoreAt(gameInx));
+                num ++;
+            }
+        }
+
+    }
+
 
     // decision made to return index instead of student objec to it an be used in differne situations saving memeory
     public int findStudentByID(String ID) {
@@ -149,10 +164,7 @@ public class Scoreboard {
     }
 
     // needed to create the class setScoreAtgame() inside of the Student to prevent the need of copying the full array and pushing it back in
-    public void updatescore(String studentReq, int gameReq, int newScore) {
-
-        int studentInx = this.findStudentByID(studentReq);
-        int gameInx = this.findGameByID(gameReq);
+    public void updatescore(int studentInx, int gameInx, int newScore) {
 
         if (studentInx == -1 && gameInx == -1) {
             System.out.printf("Student with Id: %s and/or gmae with Id: %d is not found");
@@ -177,19 +189,33 @@ public class Scoreboard {
     // canot make the array of scores
     public void TopNForGame(int gameInx, int topN) {
         int[] scoreforgigenGame = new int[this.studentCount];
+       
 
         for (int i = 0; i < this.studentCount; i++) {
             Student s = this.students[i];
             int[] allHiScores = s.getScores();
             scoreforgigenGame[i] = allHiScores[gameInx];}
 
-        Utilities.sortArrayListBasedOnScore(scoreforgigenGame);
+        Utilities.sortArrayListBasedOnScore(scoreforgigenGame, this.students);
+        // printing the top N
+        System.out.println("Students:" + this.studentCount);
+        int num = 1;
+        for (int i = this.studentCount -1; i > this.studentCount - topN -2; i--) {
+            if (this.students[i] != null) {
+                
+                //System.out.print(num + ") " + this.students[i].toString() + "\n");
+                System.out.printf("%d. %-15s (%s) - %d \n",num,this.students[i].getName(),this.students[i].getId(),this.students[i].getScoreAt(gameInx));
+                num ++;
+            }
+        }
+       
         }
 
     // gets game data from the game index, then it creates a Stats object for the object 
     public Stats computeStatsForGame(int gameIndex) { // sould return Stats
-        
+        // create a new array to save the scores
         int[] scoreforgigenGame = new int[this.studentCount];
+        // go through  all the students and copy the score of a certain game into the scores array
         for (int i = 0; i < this.studentCount; i++) {
             Student s = this.students[i];
             int[] allHiScores = s.getScores();
@@ -202,10 +228,6 @@ public class Scoreboard {
         double avg = Utilities.findAvg(scoreforgigenGame);
 
         return new Stats(min, max, avg);
-
-    }
-
-    public void updateScores() {
 
     }
 
