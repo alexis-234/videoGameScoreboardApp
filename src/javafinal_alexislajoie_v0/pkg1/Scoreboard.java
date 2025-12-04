@@ -227,7 +227,7 @@ public class Scoreboard {
         int min = Utilities.findMinimum(scoreforgigenGame);
         double avg = Utilities.findAvg(scoreforgigenGame);
 
-        return new Stats(min, max, avg);
+       return new Stats(min, max, avg);
 
     }
 
@@ -271,6 +271,12 @@ public class Scoreboard {
             this.max = max;
             this.avg = avg;
         }
+        
+        public String toString(){
+            
+            return String.format("Min: %d, Max: %d, Avg: %.2f \n", this.min,this.max,this.avg);
+        }
+                
 
     }
 

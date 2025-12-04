@@ -60,13 +60,13 @@ while (true) {
                     handleUpdateStudentScore(all);
                     break;
                 case 6:
-                    handleGameStats();
+                    handleGameStats(all);
                     break;
                 case 7:
-                    handleAddNewStudent();
+                    handleAddNewStudent(all);
                     break;
                 case 8:
-                    handeSaveData();
+                    handeSaveData(all);
                     break;
             }
         }
@@ -148,15 +148,21 @@ while (true) {
         score.updatescore(StudnentIdx, gameInx, newScore);
     }
 
-    public static void handleGameStats() {
+    public static void handleGameStats(Scoreboard score) {
         System.out.println("handleGameStats");
+        
+        score.listGames();
+        int gameInx = score.findGameByID(Utilities.getUserChoice("Enter the Number of the game"));
+        
+        System.out.print(score.computeStatsForGame(gameInx).toString());
+        
     }
 
-    public static void handleAddNewStudent() {
+    public static void handleAddNewStudent(Scoreboard score) {
         System.out.println("handleAddNewStudent");
     }
 
-    public static void handeSaveData() {
+    public static void handeSaveData(Scoreboard score) {
         System.out.println("handeSaveData");
     }
 
