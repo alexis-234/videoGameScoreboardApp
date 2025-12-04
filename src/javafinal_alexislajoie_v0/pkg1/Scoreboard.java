@@ -16,224 +16,212 @@ import javafinal_alexislajoie_v0.pkg1.Student;
  *
  * @author alexi
  */
-
 public class Scoreboard {
-    
+
     private int studentCount;
     private final int MAX_STUDENTS = 100;
     private final int GAMES_COUNT = 10;
     private Game[] games;
     private Student[] students;
-    
-    public Scoreboard(){
-        
-        this.studentCount =0;
+
+    public Scoreboard() {
+
+        this.studentCount = 0;
         this.students = new Student[this.MAX_STUDENTS];
-        
-            
+
     }
-    
+
     public Scoreboard(int studentCount, Game[] games, Student[] students) {
         this.studentCount = studentCount;
         for (int i = 0; i < students.length; i++) {
-            this.students[i] = students[i]; 
+            this.students[i] = students[i];
         }
         for (int i = 0; i < GAMES_COUNT; i++) {
             this.games[i] = games[i];
         }
     }
-    
+
     public void loadGames(String filename) throws FileNotFoundException {
         this.games = new Game[GAMES_COUNT];
         File fileObj = new File(filename);
         Scanner myScanner = new Scanner(fileObj);
-         int i =0;
-        while (myScanner.hasNext()){
+        int i = 0;
+        while (myScanner.hasNext()) {
             games[i] = new Game(myScanner.nextLine());
             System.out.println(games[i].toDataLine());
-            i++;         
+            i++;
         }
     }
-    
-    
+
     // *** TO FIX *** 
     // throws errors maybe due to file not found, while trying to write to a new file on desktop
     // saves the game objects to dataline on the file
-    public void SaveGames(String filename) throws IOException{
+    public void SaveGames(String filename) throws IOException {
         FileWriter myWriter = new FileWriter("C:\\Users\\alexi\\Desktop\\New Text Document.txt", false);
-         int i =0;
-         // could use games.lenghth instead of the static data
-        while (i >= GAMES_COUNT){
-        myWriter.write(games[i].toDataLine() + "\n");
-        i++;
-        
+        int i = 0;
+        // could use games.lenghth instead of the static data
+        while (i >= GAMES_COUNT) {
+            myWriter.write(games[i].toDataLine() + "\n");
+            i++;
+
         }
         myWriter.close();
-        
+
     }
-    
-     
+
     public void loadStudents(String filename) throws FileNotFoundException {
         File fileObj = new File(filename);
         Scanner myScanner = new Scanner(fileObj);
         System.out.print(filename);
-        
-        int i =0;
-        while (myScanner.hasNext()){
+
+        int i = 0;
+        while (myScanner.hasNext()) {
             students[i] = new Student(myScanner.nextLine());
             System.out.println(students[i].toString() + students[i].printScores());
-            i++;         
+            i++;
         }
     }
+
     // *** TO FIX *** 
     // throws errors maybe due to file not found, while trying to write to a new file on desktop
     // saves the game objects to dataline on the file
-    public void SaveStudents(String filename) throws IOException{
+    public void SaveStudents(String filename) throws IOException {
         FileWriter myWriter = new FileWriter("filename.txt", false);
-         int i =0;
-         // could use games.lenghth instead of the static data
-        while ( students[i] != null){
-        myWriter.write(students[i].toDataLine() + "\n");
-        i++;
-        
+        int i = 0;
+        // could use games.lenghth instead of the static data
+        while (students[i] != null) {
+            myWriter.write(students[i].toDataLine() + "\n");
+            i++;
+
         }
         myWriter.close();
-        
+
     }
-    
-    public void listGames(){
+
+    public void listGames() {
         System.out.println("Games:");
-        for(int i = 0; i < this.games.length; i++){
-            int  num = i + 1;
+        for (int i = 0; i < this.games.length; i++) {
+            int num = i + 1;
             System.out.print(num + ") " + this.games[i].toString() + "\n");
         }
     }
-    
-    public void listStudents(){
+
+    public void listStudents() {
         System.out.println("Students:");
         for (int i = 0; i < this.students.length; i++) {
-            if (this.students[i] != null)  {  
-            int  num = i + 1;
-            System.out.print(num + ") " + this.students[i].toString() + "\n");}
+            if (this.students[i] != null) {
+                int num = i + 1;
+                System.out.print(num + ") " + this.students[i].toString() + "\n");
+            }
         }
-        
+
     }
-    
-    
+
     // decision made to return index instead of student objec to it an be used in differne situations saving memeory
-    public int findStudentByID(String ID){
+    public int findStudentByID(String ID) {
         int foundIndex = -1;
-        
+
         for (int i = 0; i < students.length; i++) {
-            if(this.students[i].getId().equals(ID)){
+            if (this.students[i].getId().equals(ID)) {
                 foundIndex = i;
                 break;
             }
-            
+
         }
-       return foundIndex;
-        
+        return foundIndex;
+
     }
-    
-     public int findGameByID(int ID){
+
+    public int findGameByID(int ID) {
         int foundIndex = -1;
-        
+
         for (int i = 0; i < games.length; i++) {
-            if(this.games[i].getId() == ID){
+            if (this.games[i].getId() == ID) {
                 foundIndex = i;
                 break;
             }
-            
+
         }
-       return foundIndex;
-        
+        return foundIndex;
+
     }
-           
-     // needed to create the class setScoreAtgame() inside of the Student to prevent the need of copying the full array and pushing it back in
-    public void updatescore(String studentReq, int gameReq, int newScore){
-        
+
+    // needed to create the class setScoreAtgame() inside of the Student to prevent the need of copying the full array and pushing it back in
+    public void updatescore(String studentReq, int gameReq, int newScore) {
+
         int studentInx = this.findStudentByID(studentReq);
         int gameInx = this.findGameByID(gameReq);
-        
-        if (studentInx == -1 && gameInx == -1){
+
+        if (studentInx == -1 && gameInx == -1) {
             System.out.printf("Student with Id: %s and/or gmae with Id: %d is not found");
-        }
-        else{
+        } else {
             students[studentInx].setScoreAtgame(gameInx, newScore);
         }
-       
+
     }
-    
+
     // needs to be in Scoreboard to have acces to the Game names
-    public void studentReport(int stuInx){
-        System.out.printf("Report for %s\n",this.students[stuInx].getName());
+    public void studentReport(int stuInx) {
+        System.out.printf("Report for %s\n", this.students[stuInx].getName());
         for (int i = 0; i < this.students[stuInx].getScores().length; i++) {
-            System.out.printf("\t%s : %d \n",this.games[i].getTitle(), this.students[stuInx].getScores()[i]);
-            
+            System.out.printf("\t%s : %d \n", this.games[i].getTitle(), this.students[stuInx].getScores()[i]);
+
         }
-        System.out.printf("Total: %d\n",this.students[stuInx].getTotal());
-        System.out.printf("Average: %.2f\n",this.students[stuInx].getAverage());
-        
+        System.out.printf("Total: %d\n", this.students[stuInx].getTotal());
+        System.out.printf("Average: %.2f\n", this.students[stuInx].getAverage());
+
     }
-    
+
     // canot make the array of scores
-    public void TopNForGame(int gameInx,int topN){
+    public void TopNForGame(int gameInx, int topN) {
         int[] scoreforgigenGame = new int[this.studentCount];
-        
-        
-        
+
         for (int i = 0; i < this.studentCount; i++) {
-            Student s = this.students[i] ;
+            Student s = this.students[i];
             int[] allHiScores = s.getScores();
-            scoreforgigenGame[i] =  allHiScores[gameInx];
+            scoreforgigenGame[i] = allHiScores[gameInx];
         }
-        
+
         for (int i = 0; i < scoreforgigenGame.length; i++) {
             System.out.println(scoreforgigenGame[i]);
-            
+
         }
-        
-        
+
         Utilities.sortArrayListBasedOnScore(scoreforgigenGame);
         for (int i = 0; i < scoreforgigenGame.length; i++) {
             System.out.println(scoreforgigenGame[i]);
-            
+
         }
     }
-    
+
     // gets game data from the game index, then it creates a Stats object for the object 
-    public Stats computeStatsForGames(int gameIndex){ // sould return Stats
-    
-    int[] scoreforgigenGame = new int[this.studentCount];
+    public Stats computeStatsForGames(int gameIndex) { // sould return Stats
+
+        int[] scoreforgigenGame = new int[this.studentCount];
         for (int i = 0; i < this.studentCount; i++) {
-            Student s = this.students[i] ;
+            Student s = this.students[i];
             int[] allHiScores = s.getScores();
-            scoreforgigenGame[i] =  allHiScores[gameIndex];
+            scoreforgigenGame[i] = allHiScores[gameIndex];
         }
-        
+
         // finding maximum, minimum and average in utilities
-        
         int max = Utilities.findMaximum(scoreforgigenGame);
         int min = Utilities.findMinimum(scoreforgigenGame);
         double avg = Utilities.findAvg(scoreforgigenGame);
-            
-        return new Stats(min,max,avg);
-            
-        }
-        
-    
-    
-    public void updateScores(){
-        
+
+        return new Stats(min, max, avg);
+
     }
 
-    
-    public void showTopNForGame(){
-        
+    public void updateScores() {
+
     }
-    
+
+    public void showTopNForGame() {
+
+    }
+
     // getters and setters
-
     public int getStudentCount() {
         return studentCount;
     }
@@ -257,12 +245,11 @@ public class Scoreboard {
     public void setStudents(Student[] students) {
         this.students = students;
     }
-    
-    
-    class Stats{
-        
-        int min; 
-        int max; 
+
+    class Stats {
+
+        int min;
+        int max;
         double avg;
 
         public Stats(int min, int max, double avg) {
@@ -270,11 +257,8 @@ public class Scoreboard {
             this.max = max;
             this.avg = avg;
         }
-        
-       
-        
+
     }
-    
+
     // find highest, find total, find average in a static class
-            
 }
