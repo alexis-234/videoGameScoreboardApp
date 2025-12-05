@@ -48,13 +48,13 @@ public class Scoreboard {
         int i = 0;
         while (myScanner.hasNext()) {
             games[i] = new Game(myScanner.nextLine());
-            System.out.println(games[i].toDataLine());
+
             i++;
         }
     }
 
-    // *** TO FIX *** 
-    // throws errors maybe due to file not found, while trying to write to a new file on desktop
+
+
     // saves the game objects to dataline on the file
     public void saveGames(String filename) throws IOException {
         FileWriter myWriter = new FileWriter(filename, false );
@@ -77,15 +77,13 @@ public class Scoreboard {
         int i = 0;
         while (myScanner.hasNext()) {
             students[i] = new Student(myScanner.nextLine());
-            System.out.println(students[i].toString() + students[i].printScores());
             i++;
         }
 
         this.studentCount = i;
     }
 
-    // *** TO FIX *** 
-    // throws errors maybe due to file not found, while trying to write to a new file on desktop
+
     // saves the game objects to dataline on the file
     public void saveStudents(String filename) throws IOException {
         FileWriter myWriter = new FileWriter(filename, false);
