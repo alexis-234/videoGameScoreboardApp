@@ -56,11 +56,11 @@ public class Scoreboard {
     // *** TO FIX *** 
     // throws errors maybe due to file not found, while trying to write to a new file on desktop
     // saves the game objects to dataline on the file
-    public void SaveGames(String filename) throws IOException {
-        FileWriter myWriter = new FileWriter("C:\\Users\\alexi\\Desktop\\New Text Document.txt", false);
+    public void saveGames(String filename) throws IOException {
+        FileWriter myWriter = new FileWriter(filename, false );
         int i = 0;
         // could use games.lenghth instead of the static data
-        while (i >= GAMES_COUNT) {
+        while (i <= GAMES_COUNT-1) {
             myWriter.write(games[i].toDataLine() + "\n");
             i++;
 
@@ -87,8 +87,8 @@ public class Scoreboard {
     // *** TO FIX *** 
     // throws errors maybe due to file not found, while trying to write to a new file on desktop
     // saves the game objects to dataline on the file
-    public void SaveStudents(String filename) throws IOException {
-        FileWriter myWriter = new FileWriter("filename.txt", false);
+    public void saveStudents(String filename) throws IOException {
+        FileWriter myWriter = new FileWriter(filename, false);
         int i = 0;
         // could use games.lenghth instead of the static data
         while (students[i] != null) {

@@ -24,16 +24,18 @@ public class JavaFinal_AlexisLajoie_V01 {
 
         Scoreboard all = new Scoreboard();
 
-        all.loadGames("C:\\Users\\alexi\\OneDrive - Champlain Regional College\\Documents\\Classes\\Java 1\\JavaFinal_AlexisLajoie_V0.1\\games.txt");
 
-        all.loadStudents("C:\\Users\\alexi\\OneDrive - Champlain Regional College\\Documents\\Classes\\Java 1\\JavaFinal_AlexisLajoie_V0.1\\scores.txt");
 
-        ///all.SaveGames("hh");
-            // need to fix the  saves canot find the files
+        all.loadGames("games.txt");
+
+        all.loadStudents("scores.txt");
+
+
+        // need to fix the  saves canot find the files
 
 //  Load data files on start, we will call two methods here to read data from files
 // Show menu loop and collect user’s choice with Scanner 
-while (true) {
+        while (true) {
             int choice = -1;
             do {
                 printMenu();
@@ -78,15 +80,15 @@ while (true) {
     private static void printMenu() {
         System.out.print(
                 "==== Video Game Scoreboard ====\n"
-                + "1) List games\n"
-                + "2) List students\n"
-                + "3) Show a student's report\n"
-                + "4) Show top N for a game\n"
-                + "5) Update a student's score\n"
-                + "6) Game stats (min/max/avg)\n"
-                + "7) Add a new student\n"
-                + "8) Save data\n"
-                + "0) Exit\n");
+                        + "1) List games\n"
+                        + "2) List students\n"
+                        + "3) Show a student's report\n"
+                        + "4) Show top N for a game\n"
+                        + "5) Update a student's score\n"
+                        + "6) Game stats (min/max/avg)\n"
+                        + "7) Add a new student\n"
+                        + "8) Save data\n"
+                        + "0) Exit\n");
 
     }
 
@@ -150,20 +152,24 @@ while (true) {
 
     public static void handleGameStats(Scoreboard score) {
         System.out.println("handleGameStats");
-        
+
         score.listGames();
         int gameInx = score.findGameByID(Utilities.getUserChoice("Enter the Number of the game"));
-        
+
         System.out.print(score.computeStatsForGame(gameInx).toString());
-        
+
     }
 
     public static void handleAddNewStudent(Scoreboard score) {
         System.out.println("handleAddNewStudent");
     }
 
-    public static void handeSaveData(Scoreboard score) {
+    public static void handeSaveData(Scoreboard score) throws IOException {
         System.out.println("handeSaveData");
+
+        score.saveGames("games.txt");
+        score.saveStudents("scores.txt");
+
     }
 
 }
