@@ -72,7 +72,7 @@ public class Student {
             result = result + "," + this.scores[i];
             
         }
-        return String.format("%s,%s,%s",this.getId(),this.getName(),result);
+        return String.format("%s,%s%s",this.getId(),this.getName(),result);
        
     }
     
