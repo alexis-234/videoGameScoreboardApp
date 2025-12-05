@@ -162,6 +162,14 @@ public class JavaFinal_AlexisLajoie_V01 {
 
     public static void handleAddNewStudent(Scoreboard score) {
         System.out.println("handleAddNewStudent");
+
+        String id,name;
+
+        id = Utilities.getUserChoiceStr("Enter Student ID:");
+        name = Utilities.getUserChoiceStr("Enter Student Name:");
+
+        score.handleNewStudent(id,name);
+
     }
 
     public static void handeSaveData(Scoreboard score) throws IOException {

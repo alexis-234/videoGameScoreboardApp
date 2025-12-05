@@ -16,7 +16,7 @@ public class Student {
     private String name;
     private int[] scores;
 
-    public Student(String id, String name, int[] scoresInt) {
+    public Student(String id, String name, int[] scores) {
 
         this.id = id;
         this.name = name;

@@ -231,7 +231,36 @@ public class Scoreboard {
 
     }
 
-    public void showTopNForGame() {
+    public void handleNewStudent(String id, String name) {
+
+
+        boolean temp = true;
+
+        for (int i = 0; i < this.studentCount -1 ; i++) {
+            if (this.students[i].getId().equals(id)) {
+                temp = false;
+            }
+        }
+
+        if(temp){
+        int[] scores = new int[GAMES_COUNT];
+
+        for (int i = 0; i < GAMES_COUNT; i++) {
+
+            scores[i] = Utilities.getUserChoice("Enter the score for " + this.games[i].getTitle());
+        }
+
+        students[studentCount-1] = new Student(id,name,scores);
+
+        // add one student to total count
+        this.studentCount = this.studentCount +1;
+
+        }
+
+        else {
+            System.out.printf("Student ID %s is already in use\n", id);
+        }
+
 
     }
 
