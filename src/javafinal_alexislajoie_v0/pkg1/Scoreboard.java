@@ -107,20 +107,7 @@ public class Scoreboard {
         }
 
     }
-    
-    public void listStudents(int N, int gameInx) {
-        System.out.println("Students:" + this.studentCount);
-        int num = 1;
-        for (int i = this.studentCount -1; i > this.studentCount - N -2; i--) {
-            if (this.students[i] != null) {
-                
-                //System.out.print(num + ") " + this.students[i].toString() + "\n");
-                System.out.printf("%d) %s - %d \n",num,this.students[i],this.students[i].getScoreAt(gameInx));
-                num ++;
-            }
-        }
 
-    }
 
 
     // decision made to return index instead of student objec to it an be used in differne situations saving memeory
@@ -175,7 +162,7 @@ public class Scoreboard {
 
     }
 
-    // canot make the array of scores
+    // Finds the leader
     public void TopNForGame(int gameInx, int topN) {
         int[] scoreforgigenGame = new int[this.studentCount];
        

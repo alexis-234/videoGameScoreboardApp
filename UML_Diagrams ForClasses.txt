@@ -1,0 +1,127 @@
+
+
++-------------------------------------------------+
+|                   Scoreboard                    |
++-------------------------------------------------+
+| << constants >>                                 |
+| - MAX_STUDENTS: int = 100                       |
+| - GAMES_COUNT: int = 10                         |
+|-------------------------------------------------|
+| << attributes >>                                |
+| - studentCount: int                             |
+| - games: Game[]                                 |
+| - students: Student[]                           |
+|-------------------------------------------------|
+| << constructors >>                              |
+| + Scoreboard()                                  |
+| + Scoreboard(studentCount: int, games: Game[],  |
+|              students: Student[])               |
+|-------------------------------------------------|
+| << methods >>                                   |
+| + loadGames(filename: String): void             |
+| + saveGames(filename: String): void             |
+| + loadStudents(filename: String): void          |
+| + saveStudents(filename: String): void          |
+| + listGames(): void                             |
+| + listStudents(): void                          |
+| + listStudents(N: int, gameInx: int): void      |
+| + findStudentByID(ID: String): int              |
+| + findGameByID(ID: int): int                    |
+| + updatescore(studentInx: int, gameInx: int,    |
+|               newScore: int): void              |
+| + studentReport(stuInx: int): void              |
+| + TopNForGame(gameInx: int, topN: int): void    |
+| + computeStatsForGame(gameIndex: int): Stats    |
+| + handleNewStudent(id: String, name: String): void|
+| + getStudentCount(): int                        |
+| + setStudentCount(studentCount: int): void      |
+| + getGames(): Game[]                            |
+| + setGames(games: Game[]): void                 |
+| + getStudents(): Student[]                      |
+| + setStudents(students: Student[]): void        |
++-------------------------------------------------+
+
+
++-------------------------------------------------+
+|                      Game                       |
++-------------------------------------------------+
+| << attributes >>                                |
+| - id: int                                       |
+| - title: String                                 |
+| - genre: String                                 |
+| - publisher: String                             |
+|-------------------------------------------------|
+| << constructors >>                              |
+| + Game()                                        |
+| + Game(id: int, title: String, genre: String,   |
+|        publisher: String)                       |
+| + Game(line: String)                            |
+|-------------------------------------------------|
+| << methods >>                                   |
+| + toDataLine(): String                          |
+| + fromDataLine(line: String): Game << static >> |
+| + toString(): String                            |
+| + equals(other: Game): boolean                  |
+| + getId(): int                                  |
+| + setId(id: int): void                          |
+| + getTitle(): String                            |
+| + setTitle(title: String): void                 |
+| + getGenre(): String                            |
+| + setGenre(genre: String): void                 |
+| + getPublisher(): String                        |
+| + setPublisher(publisher: String): void         |
++-------------------------------------------------+
+
++-------------------------------------------------+
+|                    Student                      |
++-------------------------------------------------+
+| << constants >>                                 |
+| - NUMBER_OF_SCORES: int = 10                    |
+|-------------------------------------------------|
+| << attributes >>                                |
+| - id: String                                    |
+| - name: String                                  |
+| - scores: int[]                                 |
+|-------------------------------------------------|
+| << constructors >>                              |
+| + Student(id: String, name: String,             |
+|           scores: int[])                        |
+| + Student()                                     |
+| + Student(line: String)                         |
+|-------------------------------------------------|
+| << methods >>                                   |
+| + getTotal(): int                               |
+| + getAverage(): double                          |
+| + toDataLine(): String                          |
+| + fromDataLine(line: String): Student           |
+| + toString(): String                            |
+| + printScores(): String                         |
+| + equals(test: Student): boolean                |
+| + setScoreAtgame(gameInx: int, newScore: int): void|
+| + getScoreAt(gameInx: int): int                 |
+| + getId(): String                               |
+| + setId(id: String): void                       |
+| + getName(): String                             |
+| + setName(name: String): void                   |
+| + getScores(): int[]                            |
+| + setScores(scores: int[]): void                |
++-------------------------------------------------+
+
++-------------------------------------------------+
+|                   Utilities                     |
+|                  << static >>                   |
++-------------------------------------------------+
+| << static methods >>                            |
+| + getUserChoice(prompt: String): int            |
+| + getUserChoiceStr(prompt: String): String      |
+| + sortArrayBasedOnScore(list: int[], key: int): int|
+|    // Uses binary search                        |
+| + sortArrayListBasedOnScore(list: int[]): void  |
+|    // Uses selection sort                       |
+| + sortArrayListBasedOnScore(list: int[],        |
+|                             students: Student[]): void|
+|    // Uses selection sort, swaps scores and students|
+| + findMaximum(array: int[]): int                |
+| + findMinimum(array: int[]): int                |
+| + findAvg(array: int[]): double                 |
++-------------------------------------------------+
