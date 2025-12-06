@@ -1,19 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package javafinal_alexislajoie_v0.pkg1;
 
 import java.util.Scanner;
 
-/**
- *
- * @author alexi
- */
+@SuppressWarnings({"unused", "ForLoopReplaceableByForEach"})
 public class Utilities {
 
     public static int getUserChoice(String prompt) {
-        int choice = 0;
+        int choice;
         System.out.print(prompt);
         Scanner myScanner = new Scanner(System.in);
         choice = myScanner.nextInt();
@@ -21,7 +14,7 @@ public class Utilities {
     }
     
     public static String getUserChoiceStr(String prompt) {
-        String choice = "";
+        String choice;
         System.out.print(prompt);
         Scanner myScanner = new Scanner(System.in);
         choice = myScanner.nextLine();
@@ -47,9 +40,10 @@ public class Utilities {
         return -1 - low;
     }
 
+    @SuppressWarnings("DuplicatedCode")
     public static void sortArrayListBasedOnScore(int[] list) {
         for (int i = 0; i < list.length; i++) {
-// Find the minimum in the list[i..list.length-1]
+// Find the minimum in the list[i.list.length-1]
             int currentMin = list[i];
             int currentMinIndex = i;
             for (int j = i + 1; j < list.length; j++) {
@@ -58,14 +52,15 @@ public class Utilities {
                     currentMinIndex = j;
                 }
             }
-// Swap list[i] with list[currentMinIndex] if necessary;if (currentMinIndex != i) {
+// Swap list[i] with list[currentMinIndex] if necessary; if (currentMinIndex != i) {
             list[currentMinIndex] = list[i];
             list[i] = currentMin;
         }
     }
    
     //swaps students places basd on an array of scores 1:1 with thir scores for a given game
-    public static void sortArrayListBasedOnScore(int[] list,Student[] students) {
+    @SuppressWarnings("DuplicatedCode")
+    public static void sortArrayListBasedOnScore(int[] list, Student[] students) {
         for (int i = 0; i < list.length; i++) {
 // Find the minimum in the list[i..list.length-1]
             int currentMin = list[i];
@@ -92,12 +87,12 @@ public class Utilities {
     
     public static int findMaximum(int[] array){
         int bigest = array[0];
-        for (int i = 0; i < array.length; i++) {
-            
-            if(array[i] > bigest){
-                bigest = array[i];
+        for (int j : array) {
+
+            if (j > bigest) {
+                bigest = j;
             }
-            
+
         }
         
         
@@ -124,10 +119,9 @@ public class Utilities {
             
             total = total + array[1];
         }
-        double avg = total / array.length;
-        
-        
-        return avg;
+
+
+        return total / (array.length*1.0);
     }
     
 }

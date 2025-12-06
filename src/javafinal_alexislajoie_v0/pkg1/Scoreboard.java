@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package javafinal_alexislajoie_v0.pkg1;
 
 import java.io.File;
@@ -9,13 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-import javafinal_alexislajoie_v0.pkg1.Game;
-import javafinal_alexislajoie_v0.pkg1.Student;
 
-/**
- *
- * @author alexi
- */
+@SuppressWarnings("ALL")
 public class Scoreboard {
 
     private int studentCount;

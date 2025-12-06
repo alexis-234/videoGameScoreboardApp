@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package javafinal_alexislajoie_v0.pkg1;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -16,7 +14,8 @@ public class JavaFinal_AlexisLajoie_V01 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws FileNotFoundException, IOException {
+    @SuppressWarnings("UnusedAssignment")
+    public static void main(String[] args) throws IOException {
         // TODO code application logic here
         // TODO code application logic here
         //Create Scoreboard 
@@ -77,6 +76,7 @@ public class JavaFinal_AlexisLajoie_V01 {
 // Save on command or exit
     }
 
+    @SuppressWarnings("TextBlockMigration")
     private static void printMenu() {
         System.out.print(
                 "==== Video Game Scoreboard ====\n"
@@ -89,11 +89,6 @@ public class JavaFinal_AlexisLajoie_V01 {
                         + "7) Add a new student\n"
                         + "8) Save data\n"
                         + "0) Exit\n");
-
-    }
-
-    private static int getUserChoice(String prompt) {
-        return 1;
 
     }
 
