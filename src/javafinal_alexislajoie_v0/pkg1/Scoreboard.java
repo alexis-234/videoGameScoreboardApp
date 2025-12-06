@@ -174,7 +174,7 @@ public class Scoreboard {
 
         Utilities.sortArrayListBasedOnScore(scoreforgigenGame, this.students);
         // printing the top N
-        System.out.println("Students:" + this.studentCount);
+        System.out.println("Students:");
         int num = 1;
         for (int i = this.studentCount -1; i > this.studentCount - topN -2; i--) {
             if (this.students[i] != null) {
