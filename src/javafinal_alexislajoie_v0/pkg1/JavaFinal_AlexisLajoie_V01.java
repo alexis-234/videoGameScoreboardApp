@@ -95,12 +95,13 @@ public class JavaFinal_AlexisLajoie_V01 {
     public static void handleListGames(Scoreboard score) {
         System.out.println("handle List Games");
         score.listGames();
-
+        Utilities.getUserChoiceStr("Press Enter to continue");
     }
 
     public static void handleListStudents(Scoreboard score) {
         System.out.println("handle List Students");
         score.listStudents();
+        Utilities.getUserChoiceStr("Press Enter to continue");
     }
 
     public static void handleStudentReport(Scoreboard score) {
@@ -113,7 +114,7 @@ public class JavaFinal_AlexisLajoie_V01 {
         int StudnentIdx = score.findStudentByID(choice);
 
         score.studentReport(StudnentIdx);
-
+        Utilities.getUserChoiceStr("Press Enter to continue");
     }
 
     public static void handleTopNforAgame(Scoreboard score) {
@@ -124,7 +125,7 @@ public class JavaFinal_AlexisLajoie_V01 {
 
         int N = score.findGameByID(Utilities.getUserChoice("Enter the top N you want to see"));
         score.TopNForGame(gameInx, N);
-
+        Utilities.getUserChoiceStr("Press Enter to continue");
     }
 
     public static void handleUpdateStudentScore(Scoreboard score) {
@@ -143,6 +144,7 @@ public class JavaFinal_AlexisLajoie_V01 {
         int newScore = Utilities.getUserChoice("Enter the new Score");
 
         score.updatescore(StudnentIdx, gameInx, newScore);
+        Utilities.getUserChoiceStr("Press Enter to continue");
     }
 
     public static void handleGameStats(Scoreboard score) {
@@ -152,7 +154,7 @@ public class JavaFinal_AlexisLajoie_V01 {
         int gameInx = score.findGameByID(Utilities.getUserChoice("Enter the Number of the game"));
 
         System.out.print(score.computeStatsForGame(gameInx).toString());
-
+        Utilities.getUserChoiceStr("Press Enter to continue");
     }
 
     public static void handleAddNewStudent(Scoreboard score) {
@@ -164,6 +166,7 @@ public class JavaFinal_AlexisLajoie_V01 {
         name = Utilities.getUserChoiceStr("Enter Student Name:");
 
         score.handleNewStudent(id,name);
+        Utilities.getUserChoiceStr("Press Enter to continue");
 
     }
 
@@ -172,6 +175,9 @@ public class JavaFinal_AlexisLajoie_V01 {
 
         score.saveGames("games.txt");
         score.saveStudents("scores.txt");
+        System.out.println("Save Succesfull");
+
+        Utilities.getUserChoiceStr("Press Enter to continue");
 
     }
 
